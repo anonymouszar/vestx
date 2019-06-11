@@ -37,6 +37,7 @@
 #include <script/sigcache.h>
 #include <script/ismine.h>
 #include <scheduler.h>
+#include <shutdown.h>
 #include <timedata.h>
 #include <txdb.h>
 #include <txmempool.h>
@@ -144,17 +145,6 @@ static const char* FEE_ESTIMATES_FILENAME="fee_estimates.dat";
 // fRequestShutdown getting set, and then does the normal Qt
 // shutdown thing.
 //
-
-std::atomic<bool> fRequestShutdown(false);
-
-void StartShutdown()
-{
-    fRequestShutdown = true;
-}
-bool ShutdownRequested()
-{
-    return fRequestShutdown;
-}
 
 /**
  * This is a minimally invasive approach to shutdown on LevelDB read errors from the
@@ -365,10 +355,10 @@ void Shutdown()
         LogPrintf("%s: Unable to remove pidfile: %s\n", __func__, e.what());
     }
 #endif
+    g_wallet_init_interface.Close();
     UnregisterAllValidationInterfaces();
     GetMainSignals().UnregisterBackgroundSignalScheduler();
     GetMainSignals().UnregisterWithMempoolSignals(mempool);
-    g_wallet_init_interface.Close();
     globalVerifyHandle.reset();
     ECC_Stop();
     LogPrintf("%s: done\n", __func__);
@@ -379,15 +369,24 @@ void Shutdown()
  * The execution context the handler is invoked in is not guaranteed,
  * so we restrict handler operations to just touching variables:
  */
+#ifndef WIN32
 static void HandleSIGTERM(int)
 {
-    fRequestShutdown = true;
+    StartShutdown();
 }
 
 static void HandleSIGHUP(int)
 {
     g_logger->m_reopen_file = true;
 }
+#else
+static BOOL WINAPI consoleCtrlHandler(DWORD dwCtrlType)
+{
+    StartShutdown();
+    Sleep(INFINITE);
+    return true;
+}
+#endif
 
 #ifndef WIN32
 static void registerSignalHandler(int signal, void(*handler)(int))
@@ -783,7 +782,7 @@ static void ThreadImport(std::vector<fs::path> vImportFiles)
     if (gArgs.GetArg("-persistmempool", DEFAULT_PERSIST_MEMPOOL)) {
         LoadMempool();
     }
-    g_is_mempool_loaded = !fRequestShutdown;
+    g_is_mempool_loaded = !ShutdownRequested();
 }
 
 /** Sanity checks
@@ -993,6 +992,8 @@ bool AppInitBasicSetup()
 
     // Ignore SIGPIPE, otherwise it will bring the daemon down if the client closes unexpectedly
     signal(SIGPIPE, SIG_IGN);
+#else
+    SetConsoleCtrlHandler(consoleCtrlHandler, true);
 #endif
 
     std::set_new_handler(new_handler_terminate);
@@ -1624,7 +1625,7 @@ bool AppInitMain()
     }
 
     bool fLoaded = false;
-    while (!fLoaded && !fRequestShutdown) {
+    while (!fLoaded && !ShutdownRequested()) {
         bool fReset = fReindex;
         std::string strLoadError;
 
@@ -1651,7 +1652,7 @@ bool AppInitMain()
                         CleanupBlockRevFiles();
                 }
 
-                if (fRequestShutdown) break;
+                if (ShutdownRequested()) break;
 
                 // LoadBlockIndex will load fHavePruned if we've ever removed a
                 // block file from disk.
@@ -1758,7 +1759,7 @@ bool AppInitMain()
             fLoaded = true;
         } while(false);
 
-        if (!fLoaded && !fRequestShutdown) {
+        if (!fLoaded && !ShutdownRequested()) {
             // first suggest a reindex
             if (!fReset) {
                 bool fRet = uiInterface.ThreadSafeQuestion(
@@ -1767,7 +1768,7 @@ bool AppInitMain()
                             "", CClientUIInterface::MSG_ERROR | CClientUIInterface::BTN_ABORT);
                 if (fRet) {
                     fReindex = true;
-                    fRequestShutdown = false;
+                    AbortShutdown();
                 } else {
                     LogPrintf("Aborted block database rebuild. Exiting.\n");
                     return false;
@@ -1781,13 +1782,9 @@ bool AppInitMain()
     // As LoadBlockIndex can take several minutes, it's possible the user
     // requested to kill the GUI during the last operation. If so, exit.
     // As the program has not fully started yet, Shutdown() is possibly overkill.
-    if (fRequestShutdown)
-    {
+    if (ShutdownRequested()) {
         LogPrintf("Shutdown requested. Exiting.\n");
         return false;
-    }
-    if (fLoaded) {
-        LogPrintf(" block index %15dms\n", GetTimeMillis() - nStart);
     }
 
     fs::path est_path = GetDataDir() / FEE_ESTIMATES_FILENAME;

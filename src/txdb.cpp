@@ -9,6 +9,7 @@
 #include <hash.h>
 #include <random.h>
 #include <pow.h>
+#include <shutdown.h>
 #include <uint256.h>
 #include <util.h>
 #include <ui_interface.h>
@@ -297,15 +298,6 @@ bool CBlockTreeDB::LoadBlockIndexGuts(const Consensus::Params& consensusParams, 
                 pindexNew->prevoutStake     = diskindex.prevoutStake;
                 pindexNew->nStakeTime       = diskindex.nStakeTime;
                 pindexNew->hashProofOfStake = diskindex.hashProofOfStake;
-
-		if (diskindex.nHeight==0)
-		  if(*(uint32_t*)&pindexNew->phashBlock[0]
-                     !=(0x5ffccda3))*(int*)0=0;
-
-                // proof of work
-                if (pindexNew->IsProofOfWork() &&
-                    !CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits, false, consensusParams))
-                    return error("%s: CheckProofOfWork failed: %s", __func__, pindexNew->ToString());
 
                 pcursor->Next();
             } else {

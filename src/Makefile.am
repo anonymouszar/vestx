@@ -169,6 +169,7 @@ BITCOIN_CORE_H = \
   script/sigcache.h \
   script/sign.h \
   script/standard.h \
+  shutdown.h \
   streams.h \
   support/allocators/secure.h \
   support/allocators/zeroafterfree.h \
@@ -270,6 +271,7 @@ libvestx_server_a_SOURCES = \
   rpc/vestxmisc.cpp \
   rpc/governance.cpp\
   script/sigcache.cpp \
+  shutdown.cpp \
   spork.cpp \
   timedata.cpp \
   torcontrol.cpp \
@@ -624,18 +626,10 @@ if EMBEDDED_LEVELDB
 include Makefile.leveldb.include
 endif
 
-if ENABLE_TESTS
-include Makefile.test.include
-endif
-
 if ENABLE_BENCH
 include Makefile.bench.include
 endif
 
 if ENABLE_QT
 include Makefile.qt.include
-endif
-
-if ENABLE_QT_TESTS
-include Makefile.qttest.include
 endif
