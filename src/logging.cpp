@@ -109,7 +109,7 @@ const CLogCategoryDesc LogCategories[] =
     {BCLog::MASTERNODE, "masternode"},
     {BCLog::GOBJECT, "gobject"},
     {BCLog::MNPAYMENTS, "mnpayments"},
-    {BCLog::MINER,"miner"}
+    {BCLog::MINER,"miner"},
     {BCLog::ALL, "1"},
     {BCLog::ALL, "all"},
 };
