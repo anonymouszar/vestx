@@ -58,12 +58,12 @@
         <translation>Mottagaradresser</translation>
     </message>
     <message>
-        <source>These are your Xsn addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>De här är dina Xsn-adresser för att skicka betalningar. Kontrollera alltid mängden och mottagaradressen innan du skickar mynt.</translation>
+        <source>These are your Vestx addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>De här är dina Vestx-adresser för att skicka betalningar. Kontrollera alltid mängden och mottagaradressen innan du skickar mynt.</translation>
     </message>
     <message>
-        <source>These are your Xsn addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>De här är dina Xsn-adresser för betalningsmottagningar. Det rekommenderas att använda en ny mottagaradress för varje transaktion.</translation>
+        <source>These are your Vestx addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>De här är dina Vestx-adresser för betalningsmottagningar. Det rekommenderas att använda en ny mottagaradress för varje transaktion.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -176,8 +176,8 @@
         <translation>Plånbok krypterad</translation>
     </message>
     <message>
-        <source>Xsn will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your vestxs from being stolen by malware infecting your computer.</source>
-        <translation>Xsn kommer nu att färdigställa krypteringsprocessen. Kom ihåg att krypteringen av din plånbok inte kan skydda dig helt och hållet från att dina Xsn stjäls av skadeprogram som har infekterat din dator.</translation>
+        <source>Vestx will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your vestxs from being stolen by malware infecting your computer.</source>
+        <translation>Vestx kommer nu att färdigställa krypteringsprocessen. Kom ihåg att krypteringen av din plånbok inte kan skydda dig helt och hållet från att dina Vestx stjäls av skadeprogram som har infekterat din dator.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -219,8 +219,8 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>Xsn Core</source>
-        <translation>Xsn Core
+        <source>Vestx Core</source>
+        <translation>Vestx Core
 </translation>
     </message>
     <message>
@@ -244,8 +244,8 @@
         <translation>&amp;Skicka</translation>
     </message>
     <message>
-        <source>Send coins to a Xsn address</source>
-        <translation>Skicka mynt till en Xsn-adress</translation>
+        <source>Send coins to a Vestx address</source>
+        <translation>Skicka mynt till en Vestx-adress</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
@@ -253,7 +253,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and vestx: URIs)</source>
-        <translation>Begär betalningar (genererar QR-koder och Xsn:-URI:s)</translation>
+        <translation>Begär betalningar (genererar QR-koder och Vestx:-URI:s)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -272,8 +272,8 @@
         <translation>Avsluta applikationen</translation>
     </message>
     <message>
-        <source>&amp;About Xsn Core</source>
-        <translation>&amp;Om Xsn Core</translation>
+        <source>&amp;About Vestx Core</source>
+        <translation>&amp;Om Vestx Core</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -288,8 +288,8 @@
         <translation>&amp;Alternativ...</translation>
     </message>
     <message>
-        <source>Modify configuration options for Xsn</source>
-        <translation>Anpassa konfigurationsalternatv för Xsn</translation>
+        <source>Modify configuration options for Vestx</source>
+        <translation>Anpassa konfigurationsalternatv för Vestx</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -340,16 +340,16 @@
         <translation>Signera &amp;meddelande...</translation>
     </message>
     <message>
-        <source>Sign messages with your Xsn addresses to prove you own them</source>
-        <translation>Signera meddelanden med dina Xsn-adresser för att bevisa att du äger dem</translation>
+        <source>Sign messages with your Vestx addresses to prove you own them</source>
+        <translation>Signera meddelanden med dina Vestx-adresser för att bevisa att du äger dem</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Bekräfta meddelande...</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Xsn addresses</source>
-        <translation>Bekräfta meddelanden för att garantera att de signerades med de angivna Xsn-adresserna</translation>
+        <source>Verify messages to ensure they were signed with specified Vestx addresses</source>
+        <translation>Bekräfta meddelanden för att garantera att de signerades med de angivna Vestx-adresserna</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -405,15 +405,15 @@
     </message>
     <message>
         <source>Open a vestx: URI or payment request</source>
-        <translation>Öppna en Xsn-URI eller betalningsbegäran</translation>
+        <translation>Öppna en Vestx-URI eller betalningsbegäran</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Kommandoradalternativ</translation>
     </message>
     <message>
-        <source>Show the Xsn Core help message to get a list with possible Xsn command-line options</source>
-        <translation>Visa Xsn Core-hjälpmeddelandet för att få en lista med möjliga Xsn-kommandoradalternativ</translation>
+        <source>Show the Vestx Core help message to get a list with possible Vestx command-line options</source>
+        <translation>Visa Vestx Core-hjälpmeddelandet för att få en lista med möjliga Vestx-kommandoradalternativ</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -790,16 +790,16 @@ Adress: %4
         <translation>Darksend-konfiguration</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Xsn's configuration screen.</source>
-        <translation>Darksend ställdes framgångsrikt om till grundläggande (%1 och 2 omgångar). Du kan ändra detta när som helst genom att öppna Xsn:s konfigurationsskärm.</translation>
+        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Vestx's configuration screen.</source>
+        <translation>Darksend ställdes framgångsrikt om till grundläggande (%1 och 2 omgångar). Du kan ändra detta när som helst genom att öppna Vestx:s konfigurationsskärm.</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Xsn's configuration screen.</source>
-        <translation>Darksend ställdes framgångsrikt in på hög (%1 och 8 omgångar). Du kan ändra detta när som helst genom att öppna Xsn:s konfigurationsskärm.</translation>
+        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Vestx's configuration screen.</source>
+        <translation>Darksend ställdes framgångsrikt in på hög (%1 och 8 omgångar). Du kan ändra detta när som helst genom att öppna Vestx:s konfigurationsskärm.</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Xsn's configuration screen.</source>
-        <translation>Darksend ställdes framgångsrikt in på maximal (%1 och 16 omgångar). Du kan ändra detta när som helst genom att öppna Xsn:s konfigurationsskärm</translation>
+        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Vestx's configuration screen.</source>
+        <translation>Darksend ställdes framgångsrikt in på maximal (%1 och 16 omgångar). Du kan ändra detta när som helst genom att öppna Vestx:s konfigurationsskärm</translation>
     </message>
 </context>
 <context>
@@ -841,8 +841,8 @@ Adress: %4
         <translation>Redigera avsändaradress</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Xsn address.</source>
-        <translation>Den angivna adressen "%1" är inte en giltig Xsn-adress.</translation>
+        <source>The entered address "%1" is not a valid Vestx address.</source>
+        <translation>Den angivna adressen "%1" är inte en giltig Vestx-adress.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -883,8 +883,8 @@ Adress: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Xsn Core</source>
-        <translation>Xsn Core
+        <source>Vestx Core</source>
+        <translation>Vestx Core
 </translation>
     </message>
     <message>
@@ -931,16 +931,16 @@ Adress: %4
         <translation>Välkommen</translation>
     </message>
     <message>
-        <source>Welcome to Xsn Core.</source>
-        <translation>Välkommen till Xsn Core.</translation>
+        <source>Welcome to Vestx Core.</source>
+        <translation>Välkommen till Vestx Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Xsn Core will store its data.</source>
-        <translation>Då detta är första gången programmet startas kan du välja var Xsn Core ska lagra sin data.</translation>
+        <source>As this is the first time the program is launched, you can choose where Vestx Core will store its data.</source>
+        <translation>Då detta är första gången programmet startas kan du välja var Vestx Core ska lagra sin data.</translation>
     </message>
     <message>
-        <source>Xsn Core will download and store a copy of the Xsn block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Xsn Core kommer att laddas ned och lagra en kopia av Xsn:s blockkedja. Minst %1 GB data kommer att lagras i denna katalog och den kommer att växa med tiden. Plånboken kommer också att lagras i denna katalog.</translation>
+        <source>Vestx Core will download and store a copy of the Vestx block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Vestx Core kommer att laddas ned och lagra en kopia av Vestx:s blockkedja. Minst %1 GB data kommer att lagras i denna katalog och den kommer att växa med tiden. Plånboken kommer också att lagras i denna katalog.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -989,12 +989,12 @@ Adress: %4
         <translation>&amp;Huvud</translation>
     </message>
     <message>
-        <source>Automatically start Xsn after logging in to the system.</source>
-        <translation>Starta Xsn automatiskt efter systeminloggning.</translation>
+        <source>Automatically start Vestx after logging in to the system.</source>
+        <translation>Starta Vestx automatiskt efter systeminloggning.</translation>
     </message>
     <message>
-        <source>&amp;Start Xsn on system login</source>
-        <translation>&amp;Starta Xsn vid systeminloggning</translation>
+        <source>&amp;Start Vestx on system login</source>
+        <translation>&amp;Starta Vestx vid systeminloggning</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1021,8 +1021,8 @@ Adress: %4
         <translation>Denna mängd fungerar som en tröskel att stänga av Darksend då det har uppnåtts.</translation>
     </message>
     <message>
-        <source>Amount of Xsn to keep anonymized</source>
-        <translation>Mängd Xsn att bibehålla anonymiserade</translation>
+        <source>Amount of Vestx to keep anonymized</source>
+        <translation>Mängd Vestx att bibehålla anonymiserade</translation>
     </message>
     <message>
         <source>W&amp;allet</source>
@@ -1049,8 +1049,8 @@ Adress: %4
         <translation>&amp;Nätverk</translation>
     </message>
     <message>
-        <source>Automatically open the Xsn client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Öppna Xsn:s klientport automatiskt på routern. Detta fungerar bara om din router stöder UPnP och är aktiverad.</translation>
+        <source>Automatically open the Vestx client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Öppna Vestx:s klientport automatiskt på routern. Detta fungerar bara om din router stöder UPnP och är aktiverad.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1101,8 +1101,8 @@ Adress: %4
         <translation>Användargränssnitt&amp;språk: </translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Xsn.</source>
-        <translation>Användargränssnittspråket kan ställas in här. Denna inställning träder i kraft efter att Xsn startats om.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Vestx.</source>
+        <translation>Användargränssnittspråket kan ställas in här. Denna inställning träder i kraft efter att Vestx startats om.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
@@ -1182,8 +1182,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Formulär</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Xsn network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den visade informationen kan vara utdaterad. Din plånbok synkroniseras automatiskt med Xsn-nätverket efter att en anslutning har etablerats men denna process har ännu inte slutförts.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Vestx network after a connection is established, but this process has not completed yet.</source>
+        <translation>Den visade informationen kan vara utdaterad. Din plånbok synkroniseras automatiskt med Vestx-nätverket efter att en anslutning har etablerats men denna process har ännu inte slutförts.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1435,8 +1435,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Antal anslutningar</translation>
     </message>
     <message>
-        <source>Open the Xsn debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Öppna Xsns avsökningsloggfil från den nuvarande datakatalogen. Detta kan ta ett par sekunder för stora loggfiler.</translation>
+        <source>Open the Vestx debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Öppna Vestxs avsökningsloggfil från den nuvarande datakatalogen. Detta kan ta ett par sekunder för stora loggfiler.</translation>
     </message>
     <message>
         <source>&amp;Open</source>
@@ -1507,8 +1507,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Ut:</translation>
     </message>
     <message>
-        <source>Welcome to the Xsn RPC console.</source>
-        <translation>Välkommen till Xsns RPC-konsol.</translation>
+        <source>Welcome to the Vestx RPC console.</source>
+        <translation>Välkommen till Vestxs RPC-konsol.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1542,8 +1542,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Åt&amp;eranvänd en befintlig mottagaradress (rekommenderas inte)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Xsn network.</source>
-        <translation>Ett valfritt meddelande att bifoga betalningsbegärandet vilket kommer att visas när begärandet öppnas. Observera: Meddelandet kommer inte att skickas med betalningen över Xsn-nätverket.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Vestx network.</source>
+        <translation>Ett valfritt meddelande att bifoga betalningsbegärandet vilket kommer att visas när begärandet öppnas. Observera: Meddelandet kommer inte att skickas med betalningen över Vestx-nätverket.</translation>
     </message>
     <message>
         <source>&amp;Message:</source>
@@ -1899,8 +1899,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Fel: Plånboken låstes upp enbart för att anonymisera mynt.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Xsn address</source>
-        <translation>Varning: Ogiltig Xsn-adress</translation>
+        <source>Warning: Invalid Vestx address</source>
+        <translation>Varning: Ogiltig Vestx-adress</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -1958,8 +1958,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Meddelande:</translation>
     </message>
     <message>
-        <source>A message that was attached to the vestx: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Xsn network.</source>
-        <translation>Ett meddelande som bifogades till Xsn: URI vilket kommer att lagras med transaktionen så att du vet. Observera: Meddelandet kommer inte att skickas över Xsn-nätverket.</translation>
+        <source>A message that was attached to the vestx: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Vestx network.</source>
+        <translation>Ett meddelande som bifogades till Vestx: URI vilket kommer att lagras med transaktionen så att du vet. Observera: Meddelandet kommer inte att skickas över Vestx-nätverket.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -1985,8 +1985,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Xsn Core is shutting down...</source>
-        <translation>Xsn Core stängs ned...</translation>
+        <source>Vestx Core is shutting down...</source>
+        <translation>Vestx Core stängs ned...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2036,8 +2036,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Kopiera den nuvarande valda signaturen till systemurklippet</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Xsn address</source>
-        <translation>Signera meddelandet för att bevisa att du äger denna Xsn-adress</translation>
+        <source>Sign the message to prove you own this Vestx address</source>
+        <translation>Signera meddelandet för att bevisa att du äger denna Vestx-adress</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2060,8 +2060,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Skriv in signeringsadressen, meddelandet, (försäkra dig om att du kopierar linjeavbrott, mellanslag, flikar med mera) och signera nedtill för att verifiera meddelandet. Var försiktig med att inte läsa in mer i signaturen än vad som finns i det signerade meddelandet för att undvika att bli lurad av en mellanhandattack.</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Xsn address</source>
-        <translation>Bekräfta meddelandet för att försäkra dig om att den signerades med den angivna Xsn-adressen</translation>
+        <source>Verify the message to ensure it was signed with the specified Vestx address</source>
+        <translation>Bekräfta meddelandet för att försäkra dig om att den signerades med den angivna Vestx-adressen</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2127,8 +2127,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Xsn Core</source>
-        <translation>Xsn Core
+        <source>Vestx Core</source>
+        <translation>Vestx Core
 </translation>
     </message>
     <message>
@@ -2141,7 +2141,7 @@ https://www.transifex.com/projects/p/vestx/</translation>
     </message>
     <message>
         <source>The Dash Core developers</source>
-        <translation>Xsn Core-utvecklarna</translation>
+        <translation>Vestx Core-utvecklarna</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2662,8 +2662,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Sammanbind till fastställd adress och avlyssna alltid den. Använd [host]:port-notation för IPv6</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Xsn Core is probably already running.</source>
-        <translation>Kan inte erhålla ett lås på datakatalog %s. Xsn Core körs förmodligen redan.</translation>
+        <source>Cannot obtain a lock on data directory %s. Vestx Core is probably already running.</source>
+        <translation>Kan inte erhålla ett lås på datakatalog %s. Vestx Core körs förmodligen redan.</translation>
     </message>
     <message>
         <source>Darksend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
@@ -2718,8 +2718,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Detta är en förhandsutgiven testkompilering - använd på egen risk - använd inte för utvinning eller handlarapplikationer.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. Xsn Core is probably already running.</source>
-        <translation>Det går inte att binda till %s till denna dator. Xsn Core körs förmodligen redan.</translation>
+        <source>Unable to bind to %s on this computer. Vestx Core is probably already running.</source>
+        <translation>Det går inte att binda till %s till denna dator. Vestx Core körs förmodligen redan.</translation>
     </message>
     <message>
         <source>Unable to locate enough Darksend denominated funds for this transaction.</source>
@@ -2942,8 +2942,8 @@ https://www.transifex.com/projects/p/vestx/</translation>
         <translation>Information</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. Xsn Core is shutting down.</source>
-        <translation>Initialiseringstillståndkontroll misslyckades. Xsn Core stängs ned.</translation>
+        <source>Initialization sanity check failed. Vestx Core is shutting down.</source>
+        <translation>Initialiseringstillståndkontroll misslyckades. Vestx Core stängs ned.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>

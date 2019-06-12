@@ -1096,7 +1096,7 @@ bool CWallet::AddToWallet(const CWalletTx& wtxIn, bool fFlushOnClose)
     }
 
     //// debug print
-    LogPrintf("AddToWallet %s  %s%s\n", wtxIn.GetHash().ToString(), (fInsertedNew ? "new" : ""), (fUpdated ? "update" : ""));
+    LogPrint(BCLog::ALL, "AddToWallet %s  %s%s\n", wtxIn.GetHash().ToString(), (fInsertedNew ? "new" : ""), (fUpdated ? "update" : ""));
 
     // Write to disk
     if (fInsertedNew || fUpdated)
@@ -1192,7 +1192,7 @@ bool CWallet::AddToWalletIfInvolvingMe(const CTransactionRef& ptx, const CBlockI
                 for (const CKeyID &keyid : vAffected) {
                     std::map<CKeyID, int64_t>::const_iterator mi = m_pool_key_to_index.find(keyid);
                     if (mi != m_pool_key_to_index.end()) {
-                        LogPrintf("%s: Detected a used keypool key, mark all keypool key up to this key as used\n", __func__);
+                        LogPrint(BCLog::ALL, "%s: Detected a used keypool key, mark all keypool key up to this key as used\n", __func__);
                         MarkReserveKeysAsUsed(mi->second);
 
                         if (!TopUpKeyPool()) {
@@ -3500,7 +3500,7 @@ bool CWallet::CreateCoinStakeKernel(CScript &kernelScript, const CScript &stakeS
                 continue;
             }
             // Found a kernel
-            LogPrintf("CreateCoinStakeKernel : kernel found\n");
+            LogPrint(BCLog::ALL, "CreateCoinStakeKernel : kernel found\n");
             kernelScript.clear();
             kernelScript = stakeScript;
             nTimeTx = nTryTime;
@@ -3592,7 +3592,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore,
             return error("Failed to select coins for staking");
         }
 
-        LogPrintf("Selected %d coins for staking\n", setStakeCoins.size());
+        LogPrint(BCLog::ALL, "Selected %d coins for staking\n", setStakeCoins.size());
 
         nLastStakeSetUpdate = GetTime();
     }

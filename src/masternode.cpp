@@ -90,7 +90,7 @@ bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb, CConnman& co
         } else {
             // ... otherwise we need to reactivate our node, do not add it to the list and do not relay
             // but also do not ban the node we get this message from
-            LogPrintf("CMasternode::UpdateFromNewBroadcast -- wrong PROTOCOL_VERSION, re-activate your MN: message nProtocolVersion=%d  PROTOCOL_VERSION=%d\n", nProtocolVersion, PROTOCOL_VERSION);
+            LogPrint(BCLog::MASTERNODE, "CMasternode::UpdateFromNewBroadcast -- wrong PROTOCOL_VERSION, re-activate your MN: message nProtocolVersion=%d  PROTOCOL_VERSION=%d\n", nProtocolVersion, PROTOCOL_VERSION);
             return false;
         }
     }
@@ -171,13 +171,13 @@ void CMasternode::Check(bool fForce)
         // Otherwise give it a chance to proceed further to do all the usual checks and to change its state.
         // Masternode still will be on the edge and can be banned back easily if it keeps ignoring mnverify
         // or connect attempts. Will require few mnverify messages to strengthen its position in mn list.
-        LogPrintf("CMasternode::Check -- Masternode %s is unbanned and back in list now\n", vin.prevout.ToString());
+        LogPrint(BCLog::MASTERNODE, "CMasternode::Check -- Masternode %s is unbanned and back in list now\n", vin.prevout.ToString());
         DecreasePoSeBanScore();
     } else if(nPoSeBanScore >= MASTERNODE_POSE_BAN_MAX_SCORE) {
         nActiveState = MASTERNODE_POSE_BAN;
         // ban for the whole payment cycle
         nPoSeBanHeight = nHeight + mnodeman.size();
-        LogPrintf("CMasternode::Check -- Masternode %s is banned till block %d now\n", vin.prevout.ToString(), nPoSeBanHeight);
+        LogPrint(BCLog::MASTERNODE, "CMasternode::Check -- Masternode %s is banned till block %d now\n", vin.prevout.ToString(), nPoSeBanHeight);
         return;
     }
 
@@ -365,7 +365,7 @@ void CMasternode::UpdateLastPaid(const CBlockIndex *pindex, int nMaxBlocksToScan
                LogPrintf("UpdateLastPaid::Block is proof of work.\n");
             else
                LogPrintf("UpdateLastPaid::Block is proof of stake.\n");
-            LogPrintf("coinbaseTransaction will be %s\n",
+            LogPrint(BCLog::MASTERNODE, "coinbaseTransaction will be %s\n",
                       !isPoWBlock ? "block.vtx[1]" : "block.vtx[0]");
             const auto& coinbaseTransaction = (!isPoWBlock ? block.vtx[1] : block.vtx[0]);
             //////////////////////////////////////////////////////////////////////////////
@@ -441,7 +441,7 @@ bool CMasternodeBroadcast::Create(const COutPoint& outpoint, const CService& ser
     auto Log = [&strErrorRet,&mnbRet](std::string sErr)->bool
     {
         strErrorRet = sErr;
-        LogPrintf("CMasternodeBroadcast::Create -- %s\n", strErrorRet);
+        LogPrint(BCLog::MASTERNODE, "CMasternodeBroadcast::Create -- %s\n", strErrorRet);
         mnbRet = CMasternodeBroadcast();
         return false;
     };
@@ -565,7 +565,7 @@ bool CMasternodeBroadcast::Update(CMasternode* pmn, int& nDos, CConnman& connman
     // if ther was no masternode broadcast recently or if it matches our Masternode privkey...
     if(!pmn->IsBroadcastedWithin(MASTERNODE_MIN_MNB_SECONDS) || (fMasterNode && pubKeyMasternode == activeMasternode.pubKeyMasternode)) {
         // take the newest entry
-        LogPrintf("CMasternodeBroadcast::Update -- Got UPDATED Masternode entry: addr=%s\n", addr.ToString());
+        LogPrint(BCLog::MASTERNODE, "CMasternodeBroadcast::Update -- Got UPDATED Masternode entry: addr=%s\n", addr.ToString());
         if(pmn->UpdateFromNewBroadcast(*this, connman)) {
             pmn->Check();
             Relay(connman);

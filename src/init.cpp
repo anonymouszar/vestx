@@ -607,8 +607,8 @@ void SetupServerArgs()
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/X9Developers/VESTX>";
-    const std::string URL_WEBSITE = "<https://stakenet.io/";
+    const std::string URL_SOURCE_CODE = "<https://github.com/vestx/vestx>";
+    const std::string URL_WEBSITE = "<https://www.vestxcoin.com/";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
             "\n" +

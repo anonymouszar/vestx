@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/X9Developers/VESTX.git"
+- "url": "https://github.com/vestx/vestx.git"
   "dir": "vestx"
 files: []
 script: |

@@ -242,7 +242,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(CWallet *wallet, 
 		CTxDestination address1;
 		ExtractDestination(payee, address1);
 		CBitcoinAddress address2(address1);
-		LogPrintf("CreateNewBlock::FillBlockPayee -- Masternode payment %lld to %s\n",
+		LogPrint(BCLog::MINER, "CreateNewBlock::FillBlockPayee -- Masternode payment %lld to %s\n",
 			  masternodePayment, EncodeDestination(address1));
          }
     }
@@ -259,7 +259,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(CWallet *wallet, 
     pblocktemplate->vchCoinbaseCommitment = GenerateCoinbaseCommitment(*pblock, pindexPrev, chainparams.GetConsensus());
     pblocktemplate->vTxFees[0] = -nFees;
 
-    LogPrintf("CreateNewBlock(): block weight: %u txs: %u fees: %ld sigops %d\n", GetBlockWeight(*pblock), nBlockTx, nFees, nBlockSigOpsCost);
+    LogPrint(BCLog::MINER, "CreateNewBlock(): block weight: %u txs: %u fees: %ld sigops %d\n", GetBlockWeight(*pblock), nBlockTx, nFees, nBlockSigOpsCost);
 
     // Fill in header
     pblock->hashPrevBlock  = pindexPrev->GetBlockHash();
@@ -277,7 +277,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(CWallet *wallet, 
 
     LogPrint(BCLog::BENCH, "CreateNewBlock() packages: %.2fms (%d packages, %d updated descendants), validity: %.2fms (total %.2fms)\n", 0.001 * (nTime1 - nTimeStart), nPackagesSelected, nDescendantsUpdated, 0.001 * (nTime2 - nTime1), 0.001 * (nTime2 - nTimeStart));
 
-    LogPrintf("BlockCreated: %s\n", pblock->ToString());
+    LogPrint(BCLog::MINER, "BlockCreated: %s\n", pblock->ToString());
 
     return std::move(pblocktemplate);
 }
@@ -333,7 +333,7 @@ void BlockAssembler::AddToBlock(CTxMemPool::txiter iter)
 
     bool fPrintPriority = gArgs.GetBoolArg("-printpriority", DEFAULT_PRINTPRIORITY);
     if (fPrintPriority) {
-        LogPrintf("fee %s txid %s\n",
+        LogPrint(BCLog::MINER, "fee %s txid %s\n",
                   CFeeRate(iter->GetModifiedFee(), iter->GetTxSize()).ToString(),
                   iter->GetTx().GetHash().ToString());
     }
@@ -553,8 +553,8 @@ void IncrementExtraNonce(CBlock *pblock, const CBlockIndex* pindexPrev, unsigned
 
 static bool ProcessBlockFound(const std::shared_ptr<const CBlock> &pblock, const CChainParams& chainparams)
 {
-    LogPrintf("%s\n", pblock->ToString());
-    LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0]->vout[0].nValue));
+    LogPrint(BCLog::MINER, "%s\n", pblock->ToString());
+    LogPrint(BCLog::MINER, "generated %s\n", FormatMoney(pblock->vtx[0]->vout[0].nValue));
 
     // Found a solution
     {
@@ -575,7 +575,7 @@ static bool ProcessBlockFound(const std::shared_ptr<const CBlock> &pblock, const
 
 void static VESTXMiner(const CChainParams& chainparams, CConnman& connman, CWallet* pwallet, bool fProofOfStake)
 {
-    LogPrintf("vestxminer -- started\n");
+    LogPrint(BCLog::MINER, "vestxminer -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     RenameThread("vestx-miner");
 
@@ -624,27 +624,27 @@ void static VESTXMiner(const CChainParams& chainparams, CConnman& connman, CWall
             auto pblocktemplate = assemlber.CreateNewBlock(pwallet, coinbaseScript->reserveScript, fProofOfStake, true);
             if (!pblocktemplate.get())
             {
-                LogPrintf("vestxminer -- Failed to find a coinstake\n");
+                LogPrint(BCLog::MINER, "vestxminer -- Failed to find a coinstake\n");
                 MilliSleep(5000);
                 continue;
             }
             auto pblock = std::make_shared<CBlock>(pblocktemplate->block);
             IncrementExtraNonce(pblock.get(), pindexPrev, nExtraNonce);
 
-            LogPrintf("XsnMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+            LogPrint(BCLog::MINER, "VestxMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                       ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
             //Sign block
             if (fProofOfStake)
             {
-                LogPrintf("CPUMiner : proof-of-stake block found %s \n", pblock->GetHash().ToString().c_str());
+                LogPrint(BCLog::MINER, "VestxMiner : proof-of-stake block found %s \n", pblock->GetHash().ToString().c_str());
 
                 if (!SignBlock(*pblock, *pwallet)) {
-                    LogPrintf("VESTXMiner(): Signing new block failed \n");
+                    LogPrint(BCLog::MINER, "VESTXMiner(): Signing new block failed \n");
                     throw std::runtime_error(strprintf("%s: SignBlock failed", __func__));
                 }
 
-                LogPrintf("CPUMiner : proof-of-stake block was signed %s \n", pblock->GetHash().ToString().c_str());
+                LogPrint(BCLog::MINER, "VestxMiner : proof-of-stake block was signed %s \n", pblock->GetHash().ToString().c_str());
             }
 
             // check if block is valid
@@ -679,7 +679,7 @@ void static VESTXMiner(const CChainParams& chainparams, CConnman& connman, CWall
                     {
                         // Found a solution
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("vestxminer:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
+                        LogPrint(BCLog::MINER, "vestxminer:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
                         ProcessBlockFound(pblock, chainparams);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
                         coinbaseScript->KeepScript();
@@ -723,12 +723,12 @@ void static VESTXMiner(const CChainParams& chainparams, CConnman& connman, CWall
         }
         catch (const boost::thread_interrupted&)
         {
-            LogPrintf("XsnMiner -- terminated\n");
+            LogPrint(BCLog::MINER, "VestxMiner -- terminated\n");
             throw;
         }
         catch (const std::runtime_error &e)
         {
-            LogPrintf("vestxminer -- runtime error: %s\n", e.what());
+            LogPrint(BCLog::MINER, "vestxminer -- runtime error: %s\n", e.what());
             //            return;
         }
     }
@@ -762,7 +762,7 @@ void GenerateVESTXs(bool fGenerate,
 void ThreadStakeMinter(const CChainParams &chainparams, CConnman &connman, CWallet *pwallet)
 {
     boost::this_thread::interruption_point();
-    LogPrintf("ThreadStakeMinter started\n");
+    LogPrint(BCLog::MINER, "ThreadStakeMinter started\n");
     try {
         VESTXMiner(chainparams, connman, pwallet, true);
         boost::this_thread::interruption_point();
