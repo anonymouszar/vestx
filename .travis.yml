@@ -22,6 +22,7 @@ matrix:
         brew install qt5;
         brew install libevent;
         brew install qrencode;
+        brew install librsvg;
     install: 
         bash autogen.sh;
         bash configure --enable-reduce-exports --disable-bench --disable-tests;
