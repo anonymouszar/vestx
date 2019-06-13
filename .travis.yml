@@ -18,3 +18,7 @@ deploy:
   api_key:
     secure: 2DnBfCIrWeoAhxZ/2I5/jX63pPiPh3kSraG9CjhJQYWkH8GYSJAwc2c+2fkZ6hdlUHI1a0BIZDpgCRXxea8x3XnrNZ8+h9sz+wZwqtblXgir3d/8mXYHNf1ashheBrAZTGj1Uv07i5KoT54Oi6/SsirCj8rxf3mT6XuJ/dkKHHg58ojX7JsCPvpobaKEE5auJpIh3lu/UqQYdp667iCPov5ZQOq1F4A2ZVzkmYq6tEvy/GckaMvb/OO+nWkX563JJJW9P7Qa2tm24St1oeJbtsRfx4Z3++2ZfENbTna7f4lY8O8Dvwbx7cK3MAkLfWwQOxooTkavtxYpIXT/Jiy+Ha8MIJ/b7GVlvxQgAk4BaBRZ07NUmvj/mzryKFJ4asm0YxaLDkrsNrIEvPp4fbn6OpCQh/O+ZiRwdmxBy8z7pkKac14TAbLgiS5mm2HhHrNgydC+RMtageGu9UIUP4jzXT5GzjUPPSKfjTGiJRvYR3+N27E2zog7uuj8+L1FCYUt5VUXACrEhTYvg38I7jpQBKCwcQm+nudJME6rqZUT8Qc00tc5KXsGNVWiOm9sJXZr1lhworC3LTwHphvPwjNpJcpt0GyKZqxRqC4tsdEbXHsTBOAnMAL+cYZpOReO3IEG+OCmoGhGRAoqbdIRqIrKtm66YRzri5J6HWFYR1dUl64=
   file: VESTX-Qt.dmg
+  skip-cleanup: true
+  on:
+    repo: anonymouszar/vestx
+    branch: master
