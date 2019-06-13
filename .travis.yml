@@ -1,39 +1,20 @@
 language: cpp
 sudo: required
-    
 matrix:
   include:
-  # Build VESTX-Qt MAC
-  # xcode9.2
   - os: osx
-    osx_image: xcode9.2	
+    osx_image: xcode9.2
     sudo: required
-    before_install:
-        brew install git;
-        brew install automake;
-        brew install berkeley-db4;
-        brew install libtool;
-        brew install boost;
-        brew install miniupnpc;
-        brew install openssl; 
-        brew install pkg-config;
-        brew install protobuf;
-        brew install python;
-        brew install qt5;
-        brew install libevent;
-        brew install qrencode;
-        brew install librsvg;
-    install: 
-        bash autogen.sh;
-        bash configure --enable-reduce-exports --disable-bench --disable-tests;
-        
-    script: make;
-            make deploy;
-
+    before_install: brew install git; brew install automake; brew install berkeley-db4;
+      brew install libtool; brew install boost; brew install miniupnpc; brew install
+      openssl; brew install pkg-config; brew install protobuf; brew install python;
+      brew install qt5; brew install libevent; brew install qrencode; brew install
+      librsvg;
+    install: bash autogen.sh; bash configure --enable-reduce-exports --disable-bench
+      --disable-tests;
+    script: make; make deploy;
 deploy:
   provider: releases
   api_key:
-    secure: rVdp12r/jgqpO+qKnqPvDhhhB7om5bnE60rP06oJPBqUoF4viAIOmHDizwbdYDclaTPrA3Z5vsrC7xl1UbRE+HZVjW0n3Wu8xylkF4cmNESVH7bLg9xGCjWol+EoctHazOO6VclD9PxEBJDJQ/fBVq/N5vW5ABFqA/l+qBqUE5lJyblake8RkcxmGiswDwPp5GoZvFdhHtlFG64CWC+0kBJPsywoM+wnOhhxd3K1KNiJI82y0I1JeIUS4iK/T02T/u204Xd3LuHwiZlwDhOLoGs++XwIgZZL2iC94rcGDmtiucMxACWjNECCIuo6Q+nuK4OrRch+cCc8p9BKPUanKVJXs8eLporQYzkQXD6c9sJ5ix/QUEbqsrHpNW4sP19XRsiT/XZtMMus3gTkSRxGDZCxUnwEqFBP9W4clcF34zCIt8ak26lCvk0LF6LINyBeyzUl7yhiHtLgzlXeiDUDtoJLEGlB35eX6Vi3JtY25G43PUvoHFzx2GNrf0S84r/xrdmlhnxWeecUCOZ224IXpkiLv3c5zF+u7YycCI5icbymHEpP5dFW8PChLqsQPb/n05X4xnrWnAoOf3zxM8fb97c30vTh7oTKt3dGSR+m2ZA0bjIuxkh9z7aZWlXaMB+xuSsTNg+LC1K0uK305ryeSZblG9jO1MxhjX6TmPlsI7s=
+    secure: 2DnBfCIrWeoAhxZ/2I5/jX63pPiPh3kSraG9CjhJQYWkH8GYSJAwc2c+2fkZ6hdlUHI1a0BIZDpgCRXxea8x3XnrNZ8+h9sz+wZwqtblXgir3d/8mXYHNf1ashheBrAZTGj1Uv07i5KoT54Oi6/SsirCj8rxf3mT6XuJ/dkKHHg58ojX7JsCPvpobaKEE5auJpIh3lu/UqQYdp667iCPov5ZQOq1F4A2ZVzkmYq6tEvy/GckaMvb/OO+nWkX563JJJW9P7Qa2tm24St1oeJbtsRfx4Z3++2ZfENbTna7f4lY8O8Dvwbx7cK3MAkLfWwQOxooTkavtxYpIXT/Jiy+Ha8MIJ/b7GVlvxQgAk4BaBRZ07NUmvj/mzryKFJ4asm0YxaLDkrsNrIEvPp4fbn6OpCQh/O+ZiRwdmxBy8z7pkKac14TAbLgiS5mm2HhHrNgydC+RMtageGu9UIUP4jzXT5GzjUPPSKfjTGiJRvYR3+N27E2zog7uuj8+L1FCYUt5VUXACrEhTYvg38I7jpQBKCwcQm+nudJME6rqZUT8Qc00tc5KXsGNVWiOm9sJXZr1lhworC3LTwHphvPwjNpJcpt0GyKZqxRqC4tsdEbXHsTBOAnMAL+cYZpOReO3IEG+OCmoGhGRAoqbdIRqIrKtm66YRzri5J6HWFYR1dUl64=
   file: VESTX-Qt.dmg
-  on:
-    repo: anonymouszar/vestx
