@@ -21,4 +21,4 @@ deploy:
   skip-cleanup: true
   on:
     repo: anonymouszar/vestx
-    branch: master
+    tags: true
