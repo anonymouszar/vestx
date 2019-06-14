@@ -330,7 +330,7 @@ def deployFrameworks(frameworks, bundlePath, binaryPath, strip, verbose, deploym
         if deploymentInfo.qtPath is None and framework.isQtFramework():
             deploymentInfo.detectQtPath(framework.frameworkDirectory)
         
-       if framework.frameworkName == 'libboost_system-mt.dylib':
+        if framework.frameworkName == 'libboost_system-mt.dylib':
             print("Aha, gotcha! ({}) {} {}".format(os.getcwd()+'/contrib/macdeploy/', framework.sourceFilePath, framework.installName))
             shutil.copy2(os.getcwd()+'/contrib/macdeploy/libboost_system-mt.dylib', os.getcwd()+'/'+framework.sourceFilePath)
 
