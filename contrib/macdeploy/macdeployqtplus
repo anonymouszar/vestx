@@ -214,8 +214,8 @@ def getFrameworks(binaryPath, verbose):
     otoolLines.append(" /usr/local/opt/boost/lib/libboost_system-mt.dylib (compatibility version 0.0.0, current version 0.0.0)")
     otoolLines.pop(0) #     First line is the inspected binary
     if ".framework" in binaryPath or binaryPath.endswith(".dylib"):
-		otoolLines.pop(0) # Frameworks and dylibs list themselves as a dependency.
-    
+        otoolLines.pop(0) # Frameworks and dylibs list themselves as a dependency.
+
     libraries = []
     for line in otoolLines:
         line = line.replace("@loader_path", os.path.dirname(binaryPath))
