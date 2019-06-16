@@ -5,22 +5,13 @@ matrix:
   - os: osx
     osx_image: xcode9.2
     sudo: required
-    before_install: brew install git; 
-    brew install automake; 
-    brew install berkeley-db4;
-    brew install libtool; 
-    brew install miniupnpc; 
-    brew install openssl; 
-    brew install pkg-config; 
-    brew install protobuf; 
-    brew install python;
-    brew install qt5; 
-    brew install libevent; 
-    brew install qrencode; 
-    brew install librsvg;
-    
+    before_install: brew install git; brew install automake; brew install berkeley-db4;
+      brew install libtool; brew install boost; brew install miniupnpc; brew install
+      openssl; brew install pkg-config; brew install protobuf; brew install python;
+      brew install qt5; brew install libevent; brew install qrencode; brew install
+      librsvg;
     install: bash autogen.sh; 
-    bash configure --enable-reduce-exports --disable-bench --disable-tests --enable-static --disable-shared  --with-boost-system=boost_system-mt;
+    bash configure --enable-reduce-exports --enable-static --disable-shared --disable-bench  --disable-tests --with-boost-system=boost_system-mt;
     script: make; make deploy;
 deploy:
   provider: releases
@@ -30,4 +21,4 @@ deploy:
   skip-cleanup: true
   on:
     repo: anonymouszar/vestx
-    tags: true
+tags: true
