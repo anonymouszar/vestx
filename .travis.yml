@@ -10,8 +10,8 @@ matrix:
       openssl; brew install pkg-config; brew install protobuf; brew install python;
       brew install qt5; brew install libevent; brew install qrencode; brew install
       librsvg;
-    install: bash autogen.sh; 
-    bash configure --enable-reduce-exports --enable-static --disable-shared --disable-bench  --disable-tests --with-boost-system=boost_system-mt;
+    install: bash autogen.sh; bash configure --enable-reduce-exports --disable-bench
+      --disable-tests;
     script: make; make deploy;
 deploy:
   provider: releases
@@ -21,4 +21,4 @@ deploy:
   skip-cleanup: true
   on:
     repo: anonymouszar/vestx
-tags: true
+    tags: true
