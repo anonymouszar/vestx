@@ -6,7 +6,7 @@ matrix:
     osx_image: xcode9.2
     sudo: required
     before_install: brew install git; brew install automake; brew install berkeley-db4;
-      brew install libtool; brew install boost; brew install miniupnpc; brew install
+      brew install libtool; brew install boost@1.63; brew link boost@1.63 -f;  brew install miniupnpc; brew install
       openssl; brew install pkg-config; brew install protobuf; brew install python;
       brew install qt5; brew install libevent; brew install qrencode; brew install
       librsvg;
