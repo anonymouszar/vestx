@@ -9,7 +9,6 @@ matrix:
     brew install automake; 
     brew install berkeley-db4;
     brew install libtool; 
-    brew install -f boost@1.60; 
     brew install miniupnpc; 
     brew install openssl; 
     brew install pkg-config; 
@@ -21,7 +20,7 @@ matrix:
     brew install librsvg;
     
     install: bash autogen.sh; 
-    bash configure --with-boost-libdir=/usr/local/Cellar/boost160/1.60.0/lib/ --enable-reduce-exports --disable-bench --disable-tests --enable-static --disable-shared  --with-boost-system=boost_system-mt;
+    bash configure --enable-reduce-exports --disable-bench --disable-tests --enable-static --disable-shared  --with-boost-system=boost_system-mt;
     script: make; make deploy;
 deploy:
   provider: releases
