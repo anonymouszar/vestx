@@ -338,7 +338,7 @@ def deployFrameworks(frameworks, bundlePath, binaryPath, strip, verbose, deploym
 
         if framework.frameworkName == 'libboost_system-mt.dylib':
             print("Aha, gotcha! ({}) {} {}".format(os.getcwd()+'/contrib/macdeploy/', framework.sourceFilePath, framework.installName))
-            shutil.copy2('/usr/local/Cellar/boost/lib/libboost_system-mt.dylib', os.getcwd()+'/'+framework.sourceFilePath)
+            shutil.copy2('/usr/local/Cellar/boost@1.60/1.60.0/lib/libboost_system-mt.dylib', os.getcwd()+'/'+framework.sourceFilePath)
 
         elif framework.installName.startswith("@executable_path") or framework.installName.startswith(bundlePath):
              if verbose >= 2:
