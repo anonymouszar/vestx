@@ -10,6 +10,9 @@ matrix:
       openssl; brew install pkg-config; brew install protobuf; brew install python;
       brew install qt5; brew install libevent; brew install qrencode; brew install
       librsvg;
+      wget https://repo.continuum.io/miniconda/Miniconda3-3.7.0-Linux-x86_64.sh -O ~/miniconda.sh;
+      bash ~/miniconda.sh -b -p $HOME/miniconda;
+      export PATH="$HOME/miniconda/bin:$PATH";
     install: bash autogen.sh; bash configure --enable-reduce-exports --disable-bench
       --disable-tests;
     script: make; make deploy;
