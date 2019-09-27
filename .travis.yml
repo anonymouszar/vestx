@@ -3,17 +3,13 @@ sudo: required
 matrix:
   include:
   - os: osx
-    osx_image: xcode7.3
+    osx_image: xcode9.2
     sudo: required
     before_install: brew install git; brew install automake; brew install berkeley-db4;
       brew install libtool; brew install boost@1.60; brew link --overwrite boost@1.60;  brew install miniupnpc; brew install
-      openssl; brew install pkg-config; brew install python;
+      openssl; brew install pkg-config; brew install protobuf; brew install python;
       brew install qt5; brew install libevent; brew install qrencode; brew install
       librsvg;
-      wget https://repo.continuum.io/miniconda/Miniconda3-3.7.0-Linux-x86_64.sh -O ~/miniconda.sh;
-      bash ~/miniconda.sh -b -p $HOME/miniconda;
-      export PATH="$HOME/miniconda/bin:$PATH";
-      conda install -c anaconda protobuf; 
     install: bash autogen.sh; bash configure --enable-reduce-exports --disable-bench
       --disable-tests;
     script: make; make deploy;
